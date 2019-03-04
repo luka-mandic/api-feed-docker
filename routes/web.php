@@ -18,5 +18,7 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'api/v1'], function () {
     Route::resource('posts', 'PostController');
+    Route::resource('tags', 'TagController')->only(['index', 'show']);
+    Route::get('posts/{id}/tags', 'TagController@postTags');
 
 });
